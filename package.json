@@ -1,0 +1,25 @@
+{
+  "name": "data-residency-check",
+  "version": "0.1.0",
+  "description": "Where is the data? Check where a website or vendor is served from, or inventory your AWS, Azure or Google Cloud account by country. Read-only, no dependencies, CI-friendly.",
+  "keywords": ["data residency", "data sovereignty", "privacy", "compliance", "aws", "azure", "gcp", "canada", "pipeda", "gdpr", "cli"],
+  "license": "MIT",
+  "author": "SealDrop (https://sealdrop.ca)",
+  "homepage": "https://github.com/SealdropCanada/data-residency-check#readme",
+  "repository": { "type": "git", "url": "git+https://github.com/SealdropCanada/data-residency-check.git" },
+  "bugs": "https://github.com/SealdropCanada/data-residency-check/issues",
+  "type": "module",
+  "bin": { "data-residency-check": "dist/bin.js" },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/bin.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/*.test.ts",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^6.0.3"
+  }
+}
